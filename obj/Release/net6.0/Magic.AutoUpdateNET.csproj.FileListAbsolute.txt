@@ -1,0 +1,12 @@
+C:\Users\Dell Latitude 7400\Documents\repos\Magic.AutoUpdateNET\bin\Release\net6.0\Magic.AutoUpdateNET.deps.json
+C:\Users\Dell Latitude 7400\Documents\repos\Magic.AutoUpdateNET\bin\Release\net6.0\Magic.AutoUpdateNET.dll
+C:\Users\Dell Latitude 7400\Documents\repos\Magic.AutoUpdateNET\bin\Release\net6.0\Magic.AutoUpdateNET.pdb
+C:\Users\Dell Latitude 7400\Documents\repos\Magic.AutoUpdateNET\obj\Release\net6.0\Magic.AutoUpdateNET.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dell Latitude 7400\Documents\repos\Magic.AutoUpdateNET\obj\Release\net6.0\Magic.AutoUpdateNET.AssemblyInfoInputs.cache
+C:\Users\Dell Latitude 7400\Documents\repos\Magic.AutoUpdateNET\obj\Release\net6.0\Magic.AutoUpdateNET.AssemblyInfo.cs
+C:\Users\Dell Latitude 7400\Documents\repos\Magic.AutoUpdateNET\obj\Release\net6.0\Magic.AutoUpdateNET.csproj.CoreCompileInputs.cache
+C:\Users\Dell Latitude 7400\Documents\repos\Magic.AutoUpdateNET\obj\Release\net6.0\Magic.AutoUpdateNET.dll
+C:\Users\Dell Latitude 7400\Documents\repos\Magic.AutoUpdateNET\obj\Release\net6.0\refint\Magic.AutoUpdateNET.dll
+C:\Users\Dell Latitude 7400\Documents\repos\Magic.AutoUpdateNET\obj\Release\net6.0\Magic.AutoUpdateNET.pdb
+C:\Users\Dell Latitude 7400\Documents\repos\Magic.AutoUpdateNET\obj\Release\net6.0\ref\Magic.AutoUpdateNET.dll
+C:\Users\Dell Latitude 7400\Documents\repos\Magic.AutoUpdateNET\obj\Release\net6.0\Magic.AutoUpdateNET.csproj.AssemblyReference.cache

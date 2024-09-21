@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyVersion>41.0.0.0</AssemblyVersion>
+    <FileVersion>41.0.0.0</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <FrameworkReference Include="Microsoft.WindowsDesktop.App.WindowsForms" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Magic.ProcessingFormNET\Magic.ProcessingFormNET.csproj" />
+    <ProjectReference Include="..\Magic.SystemAddonsNET\Magic.SystemAddonsNET.csproj" />
+  </ItemGroup>
+</Project>

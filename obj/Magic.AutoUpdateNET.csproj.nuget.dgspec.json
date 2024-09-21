@@ -1,0 +1,341 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.AutoUpdateNET\\Magic.AutoUpdateNET.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.AutoUpdateNET\\Magic.AutoUpdateNET.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.AutoUpdateNET\\Magic.AutoUpdateNET.csproj",
+        "projectName": "Magic.AutoUpdateNET",
+        "projectPath": "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.AutoUpdateNET\\Magic.AutoUpdateNET.csproj",
+        "packagesPath": "C:\\Users\\Dell Latitude 7400\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.AutoUpdateNET\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Dell Latitude 7400\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0-windows7.0": {
+            "targetAlias": "net6.0-windows",
+            "projectReferences": {
+              "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.ProcessingFormNET\\Magic.ProcessingFormNET.csproj": {
+                "projectPath": "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.ProcessingFormNET\\Magic.ProcessingFormNET.csproj"
+              },
+              "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.SystemAddonsNET\\Magic.SystemAddonsNET.csproj": {
+                "projectPath": "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.SystemAddonsNET\\Magic.SystemAddonsNET.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.FormsNET\\Magic.FormsNET.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.FormsNET\\Magic.FormsNET.csproj",
+        "projectName": "Magic.FormsNET",
+        "projectPath": "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.FormsNET\\Magic.FormsNET.csproj",
+        "packagesPath": "C:\\Users\\Dell Latitude 7400\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.FormsNET\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Dell Latitude 7400\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0-windows7.0": {
+            "targetAlias": "net6.0-windows",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.HelperNET\\Magic.HelperNET.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.HelperNET\\Magic.HelperNET.csproj",
+        "projectName": "Magic.HelperNET",
+        "projectPath": "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.HelperNET\\Magic.HelperNET.csproj",
+        "packagesPath": "C:\\Users\\Dell Latitude 7400\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.HelperNET\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Dell Latitude 7400\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0-windows7.0": {
+            "targetAlias": "net6.0-windows",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.ProcessingFormNET\\Magic.ProcessingFormNET.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.ProcessingFormNET\\Magic.ProcessingFormNET.csproj",
+        "projectName": "Magic.ProcessingFormNET",
+        "projectPath": "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.ProcessingFormNET\\Magic.ProcessingFormNET.csproj",
+        "packagesPath": "C:\\Users\\Dell Latitude 7400\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.ProcessingFormNET\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Dell Latitude 7400\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0-windows7.0": {
+            "targetAlias": "net6.0-windows",
+            "projectReferences": {
+              "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.FormsNET\\Magic.FormsNET.csproj": {
+                "projectPath": "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.FormsNET\\Magic.FormsNET.csproj"
+              },
+              "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.HelperNET\\Magic.HelperNET.csproj": {
+                "projectPath": "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.HelperNET\\Magic.HelperNET.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.SystemAddonsNET\\Magic.SystemAddonsNET.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.SystemAddonsNET\\Magic.SystemAddonsNET.csproj",
+        "projectName": "Magic.SystemAddonsNET",
+        "projectPath": "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.SystemAddonsNET\\Magic.SystemAddonsNET.csproj",
+        "packagesPath": "C:\\Users\\Dell Latitude 7400\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dell Latitude 7400\\Documents\\repos\\Magic.SystemAddonsNET\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Dell Latitude 7400\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0-windows7.0": {
+            "targetAlias": "net6.0-windows",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
+          "dependencies": {
+            "System.Management": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
