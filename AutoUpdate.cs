@@ -12,12 +12,18 @@ namespace Magic
         public string LatestVersionCheckURL { get; set; } = string.Empty;
         public string CurrentVersion { get; set; } = "1.0.0";
 
-        public UpdateInfo updateInfo { get; set; } = new UpdateInfo();
+        public UpdateInfo? updateInfo { get; set; }
 
         public string NewMsiPath { get; set; } = string.Empty;
 
         public AutoUpdateNET()
         {
+        } // end of method
+
+        public AutoUpdateNET(UpdateInfo updateInfo)
+        {
+
+            this.updateInfo = updateInfo;
 
         } // end of method
 
@@ -25,6 +31,14 @@ namespace Magic
         {
 
             CallingClass = callingClass;
+
+        } // end of method
+
+        public AutoUpdateNET(Form callingClass, UpdateInfo updateInfo)
+        {
+
+            CallingClass = callingClass;
+            this.updateInfo = updateInfo;
 
         } // end of method
 
@@ -36,19 +50,46 @@ namespace Magic
 
                 this.LatestVersionCheckURL = latestVersionCheckURL;
 
-                if (string.IsNullOrEmpty(this.LatestVersionCheckURL) || this.CallingClass == null)
+                if (string.IsNullOrEmpty(this.LatestVersionCheckURL))
                 {
                     this.updateInfo = new UpdateInfo();
                     return;
                 }
 
-                this.updateInfo = await GetRemoteVersion(purchasingEmail);
+                UpdateInfo updateInfo = new UpdateInfo();
+
+                using (HttpClient client = new HttpClient())
+                {
+                    Dictionary<string, string> postData = new Dictionary<string, string>
+                    {
+                        { "auth", "Hallaw" },
+                        { "purchasing_email", purchasingEmail }
+                    };
+
+                    FormUrlEncodedContent content = new FormUrlEncodedContent(postData);
+                    HttpResponseMessage response;
+
+                    try
+                    {
+                        response = await client.PostAsync(this.LatestVersionCheckURL, content);
+                    }
+                    catch
+                    {
+                        this.updateInfo = updateInfo;
+                        return; // atau lakukan sesuatu jika gagal
+                    }
+
+                    string updateInfoString = await response.Content.ReadAsStringAsync();
+                    updateInfo = JsonConvert.DeserializeObject<UpdateInfo>(updateInfoString)!;
+                }
+
+                this.updateInfo = updateInfo;
 
             });
 
         } // end of method
 
-        public async Task Update(string latestVersionFileSavePath)
+        public async Task Update(string latestVersionFileSavePath, bool execute = true)
         {
             this.NewMsiPath = latestVersionFileSavePath;
 
@@ -71,97 +112,22 @@ namespace Magic
                         await httpClientHelper.DownloadFileAsync(this.updateInfo!.DownloadURL, latestVersionFileSavePath);
                     }
 
-                    // Akses elemen UI di thread UI menggunakan Invoke
-                    this.CallingClass!.Invoke((MethodInvoker)delegate
+                    if (execute)
                     {
-                        this.CallingClass.FormClosed += ExecuteInstaller;
-                        this.CallingClass.FormClosed += (sender, e) => Application.Exit();
-                        this.CallingClass.Close();
-                    });
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine($"Error during update: {ex.Message}");
-                }
-            });
-
-        } // end of method
-
-        /*
-        public async Task Update_(string latestVersionFileSavePath)
-        {
-
-            this.NewMsiPath = latestVersionFileSavePath;
-
-            await ProcessingFormNET.ExecuteAsync("Mendownload versi terbaru...", async () =>
-            {
-
-                try
-                {
-                    if (File.Exists(latestVersionFileSavePath))
-                    {
-                        File.Delete(latestVersionFileSavePath);
-                    }
-
-                    using (WebClient binClient = new WebClient())
-                    {
-                        binClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler((sender, e) =>
+                        // Akses elemen UI di thread UI menggunakan Invoke
+                        this.CallingClass!.Invoke((MethodInvoker)delegate
                         {
-                            ProcessingFormNET.UpdateLabel($"Mendownload versi terbaru... ({e.ProgressPercentage}%)");
+                            this.CallingClass.FormClosed += ExecuteInstaller;
+                            this.CallingClass.FormClosed += (sender, e) => Application.Exit();
+                            this.CallingClass.Close();
                         });
-
-                        await binClient.DownloadFileTaskAsync(new Uri(this.updateInfo!.DownloadURL), latestVersionFileSavePath);
                     }
-
-                    // Akses elemen UI di thread UI menggunakan Invoke
-                    this.CallingClass!.Invoke((MethodInvoker)delegate
-                    {
-                        this.CallingClass.FormClosed += ExecuteInstaller;
-                        this.CallingClass.FormClosed += (sender, e) => Application.Exit();
-                        this.CallingClass.Close();
-                    });
                 }
                 catch (Exception ex)
                 {
                     Debug.WriteLine($"Error during update: {ex.Message}");
                 }
-
             });
-
-        } // end of method
-        */
-
-        private async Task<UpdateInfo> GetRemoteVersion(string purchasingEmail)
-        {
-
-            UpdateInfo updateInfo = new UpdateInfo();
-
-            using (HttpClient client = new HttpClient())
-            {
-                Dictionary<string, string> postData = new Dictionary<string, string>
-                {
-                    { "auth", "Hallaw" },
-                    { "purchasing_email", purchasingEmail }
-                };
-
-                FormUrlEncodedContent content = new FormUrlEncodedContent(postData);
-                HttpResponseMessage response;
-                
-                try
-                {
-                    response = await client.PostAsync(this.LatestVersionCheckURL, content);
-                }
-                catch
-                {
-                    return updateInfo;
-                }
-
-                string updateInfoString = await response.Content.ReadAsStringAsync();
-
-                updateInfo = JsonConvert.DeserializeObject<UpdateInfo>(updateInfoString)!;
-            }
-
-            return updateInfo!;
 
         } // end of method
 
@@ -196,10 +162,30 @@ namespace Magic
 
         } // end of method
 
+        public bool IsUpdate(string ExistingVersion)
+        {
+
+            return CompareVersions(ExistingVersion, this.updateInfo!.LatestVersion) < 0 ? true : false;
+
+        } // end of method
+
         public bool IsUpdate(string ExistingVersion, string LatestVersion)
         {
 
             return CompareVersions(ExistingVersion, LatestVersion) < 0 ? true : false;
+
+        } // end of method
+
+        public void ExecuteInstaller(object? sender, FormClosedEventArgs? e)
+        {
+
+            string msiFullPath = Path.GetFullPath(this.NewMsiPath);
+
+            Process process = new Process();
+            process.StartInfo.FileName = "msiexec";
+            process.StartInfo.Arguments = string.Format($"/i \"{msiFullPath}\"");
+
+            process.Start();
 
         } // end of method
 
@@ -210,19 +196,6 @@ namespace Magic
             public string LatestVersion { get; set; } = "1.0.0";
             public bool ForceUpdate { get; set; } = false;
             public string DownloadURL { get; set; } = string.Empty;
-
-        } // end of method
-
-        private void ExecuteInstaller(object? sender, FormClosedEventArgs e)
-        {
-
-            string msiFullPath = Path.GetFullPath(this.NewMsiPath);
-
-            Process process = new Process();
-            process.StartInfo.FileName = "msiexec";
-            process.StartInfo.Arguments = string.Format($"/i \"{msiFullPath}\"");
-
-            process.Start();
 
         } // end of method
 
