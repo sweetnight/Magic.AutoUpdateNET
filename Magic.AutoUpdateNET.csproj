@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Magic.LicensingNET\Magic.LicensingNET.csproj" />
     <ProjectReference Include="..\Magic.ProcessingFormNET\Magic.ProcessingFormNET.csproj" />
     <ProjectReference Include="..\Magic.SystemAddonsNET\Magic.SystemAddonsNET.csproj" />
   </ItemGroup>

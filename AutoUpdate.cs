@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Net;
 using System.Windows.Forms;
+using Magic.LicensingNET;
 using Newtonsoft.Json;
 
 namespace Magic
@@ -13,6 +14,7 @@ namespace Magic
         public string CurrentVersion { get; set; } = "1.0.0";
 
         public UpdateInfo? updateInfo { get; set; }
+        public AppVersionDetails? AppVersionDetails { get; set; }
 
         public string NewMsiPath { get; set; } = string.Empty;
 
@@ -24,6 +26,13 @@ namespace Magic
         {
 
             this.updateInfo = updateInfo;
+
+        } // end of method
+
+        public AutoUpdateNET(AppVersionDetails appVersionDetails)
+        {
+
+            this.AppVersionDetails = appVersionDetails;
 
         } // end of method
 
@@ -131,6 +140,48 @@ namespace Magic
 
         } // end of method
 
+        public async Task UpdateV2(string latestVersionFileSavePath, bool execute = true)
+        {
+            this.NewMsiPath = latestVersionFileSavePath;
+
+            await ProcessingFormNET.ExecuteAsync("Mendownload versi terbaru...", async () =>
+            {
+                try
+                {
+                    if (File.Exists(latestVersionFileSavePath))
+                    {
+                        File.Delete(latestVersionFileSavePath);
+                    }
+
+                    using (Magic.SystemAddonsNET.HTTP httpClientHelper = new Magic.SystemAddonsNET.HTTP())
+                    {
+                        httpClientHelper.DownloadProgressChanged += (progress) =>
+                        {
+                            ProcessingFormNET.UpdateLabel($"Mendownload versi terbaru... ({progress}%)");
+                        };
+
+                        await httpClientHelper.DownloadFileAsync(this.AppVersionDetails!.DownloadURL, latestVersionFileSavePath);
+                    }
+
+                    if (execute)
+                    {
+                        // Akses elemen UI di thread UI menggunakan Invoke
+                        this.CallingClass!.Invoke((MethodInvoker)delegate
+                        {
+                            this.CallingClass.FormClosed += ExecuteInstaller;
+                            this.CallingClass.FormClosed += (sender, e) => Application.Exit();
+                            this.CallingClass.Close();
+                        });
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Error during update: {ex.Message}");
+                }
+            });
+
+        } // end of method
+
         /// <summary>
         /// Membandingkan 2 versi dengan format xx.yy.zz. Meskipun bisa saja ada berapapun bagian.
         /// </summary>
@@ -166,6 +217,13 @@ namespace Magic
         {
 
             return CompareVersions(ExistingVersion, this.updateInfo!.LatestVersion) < 0 ? true : false;
+
+        } // end of method
+
+        public bool IsUpdateV2(string ExistingVersion)
+        {
+
+            return CompareVersions(ExistingVersion, this.AppVersionDetails!.LatestVersion) < 0 ? true : false;
 
         } // end of method
 
