@@ -149,7 +149,7 @@ namespace Magic
                 HelperNET.EndMinimumTime(2000);
             });
 
-            await ProcessingFormNET.ExecuteAsync("Mendownload versi terbaru...", async () =>
+            await ProcessingFormNET.ExecuteAsync("Downloading latest version...", async () =>
             {
                 try
                 {
@@ -162,7 +162,7 @@ namespace Magic
                     {
                         httpClientHelper.DownloadProgressChanged += (progress) =>
                         {
-                            ProcessingFormNET.UpdateLabel($"Mendownload versi terbaru... ({progress}%)");
+                            ProcessingFormNET.UpdateLabel($"Downloading latest version... ({progress}%)");
                         };
 
                         await httpClientHelper.DownloadFileAsync(this.AppVersionDetails!.DownloadURL, NewMsiPath);
