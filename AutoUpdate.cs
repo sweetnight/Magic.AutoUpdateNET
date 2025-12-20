@@ -140,17 +140,22 @@ namespace Magic
 
         } // end of method
 
-        public async Task UpdateV2(string latestVersionFileSavePath, bool execute = true)
+        public async Task UpdateV2(bool execute = true)
         {
-            this.NewMsiPath = latestVersionFileSavePath;
+
+            ProcessingFormNET.Execute("Updating application...", () =>
+            {
+                HelperNET.StartMinimumTime();
+                HelperNET.EndMinimumTime(2000);
+            });
 
             await ProcessingFormNET.ExecuteAsync("Mendownload versi terbaru...", async () =>
             {
                 try
                 {
-                    if (File.Exists(latestVersionFileSavePath))
+                    if (File.Exists(NewMsiPath))
                     {
-                        File.Delete(latestVersionFileSavePath);
+                        File.Delete(NewMsiPath);
                     }
 
                     using (Magic.SystemAddonsNET.HTTP httpClientHelper = new Magic.SystemAddonsNET.HTTP())
@@ -160,7 +165,7 @@ namespace Magic
                             ProcessingFormNET.UpdateLabel($"Mendownload versi terbaru... ({progress}%)");
                         };
 
-                        await httpClientHelper.DownloadFileAsync(this.AppVersionDetails!.DownloadURL, latestVersionFileSavePath);
+                        await httpClientHelper.DownloadFileAsync(this.AppVersionDetails!.DownloadURL, NewMsiPath);
                     }
 
                     if (execute)
