@@ -259,6 +259,7 @@ namespace Magic
             public string LatestVersion { get; set; } = "1.0.0";
             public bool ForceUpdate { get; set; } = false;
             public string DownloadURL { get; set; } = string.Empty;
+            public string DriverDownloadURL { get; set; } = string.Empty;
 
         } // end of method
 
